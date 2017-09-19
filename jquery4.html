@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tuntiharjoitus 2</title>
+        <link href="vaalea.css" rel="stylesheet" type="text/css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+         
+        <button id="animoi">Klikkaa</button>
+        
+        <div style="width: 200px; height: 200px; background-color: red; position: absolute; font-size: 14pt">Aan?</div>
+
+        <script>  
+         $(document).ready(function(){ 
+            $("#animoi").click(function(){  
+               var div=$("div"); 
+               div.animate({height:'300px',opacity:'0.4'},"slow"); 
+               div.animate({width:'300px',opacity:'0.8'},"slow"); 
+               div.animate({height:'100px',opacity:'0.4'},"slow"); 
+               div.animate({width:'100px',opacity:'0.8'},"slow");
+                
+                div.delay(1200).animate({left:'200px'},"slow");
+                div.animate({fontSize:'3em'},"slow");
+                div.delay(500).animate({left:'10px'},"slow");
+                div.animate({fontSize:'14pt'},"slow");
+             });
+          })
+        </script>
+        
+    </body>
+</html>

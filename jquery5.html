@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tuntiharjoitus 2</title>
+        <link href="vaalea.css" rel="stylesheet" type="text/css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        
+<script>
+    $(document).ready(function(){
+    //määritellään canvas-alue
+    var canvas = $("#canvas")[0];
+    var konteksti = canvas.getContext("2d");
+    var leveys = $("#canvas").width();
+    var korkeus = $("#canvas").height();
+        
+    var ruutu = 10; //määritellään madon (koostuu neliöistä) leveys pikseleissä
+    var nopeus= 30; //määritellään nopeus. Peliä voi vaikeuttaa pienentämällä lukua. 100=0,1s
+    var ruoka;
+    var pisteet;
+    var matoTaulukko; //Luodaan mato taulukkoon
+        
+    function alku(){
+            suunta = "right"; // alun oletus suunta oikea
+            luoMato(); // tehdään mato funktiokutsulla
+            luoRuoka(); //lisätään ruokaruutu funktiokutsulla
+            pisteet = 0;//nollataan pistelaskuri
+            // ajastin madon liikuttamiseen 0,1 s välein
+            if(typeof peliLuuppi != "undefined") clearInterval(peliLuuppi);
+                peliLuuppi = setInterval(piirra, nopeus); // kutsutaan piirra-funktiota 0,1 s välein
+        }
+
+        alku();
+
+        function luoMato() {
+            var pituus = 5; //Madon pituus alussa ruutuina
+            matoTaulukko = []; //Alussa tyhjä taulukko
+            for(var i =pituus-1; i>=0; i--) {
+                matoTaulukko.push({x: i, y:0}); //Tehdään vaakasuoraan 5-ruutua pitkä mato vasempaan yläkulmaan
+            }
+        }
+
+        function luoRuoka() {
+            ruoka = {
+                x: Math.round(Math.random()*(leveys-ruutu)/ruutu),
+                y: Math.round(Math.random()*(korkeus-ruutu)/ruutu),
+            };
+        }
+
+        function piirra() {
+        konteksti.fillStyle = "white"; //Canvas eli pelialue: sisus valkoinen
+        konteksti.fillRect(0, 0, leveys, korkeus);
+        konteksti.strokeStyle = "black"; //Canvas eli pelialue: reunus mustalla
+        konteksti.strokeRect(0, 0, leveys, korkeus);
+
+        //Liikutetaan matoa ottamalla pois takaa viimeinen palanen ja siirtämällä se eteen ensimmäiseksi
+        var xpaikka = matoTaulukko[0].x;
+        var ypaikka = matoTaulukko[0].y;
+
+        //Tutkitaan ensimmäisen solun mukainen kulkusuunta ja liikutetaan matoa tämän suuntaan
+        if(suunta == "right") xpaikka++;
+        else if(suunta == "left") xpaikka--;
+        else if(suunta == "up") ypaikka--;
+        else if(suunta == "down") ypaikka++;
+
+        //aloitetaan peli alusta jos osutaan reunaan tai matoon itseensä
+        if(xpaikka == -1 || xpaikka == leveys/ruutu || ypaikka == -1 || ypaikka == korkeus/ruutu || tarkistaOsuiko(xpaikka, ypaikka, matoTaulukko)) {
+        alku();
+        return;
+        }
+
+        // jos saadaan ruoka syödyksi eli tullaan ruokasoluun niin madon pittus kasvaa yhdellä
+        if (xpaikka == ruoka.x && ypaikka == ruoka.y) {
+            var loppuosa = {x: xpaikka, y: ypaikka};
+            pisteet++;
+            luoRuoka(); //tehdään uusi ruoka
+        }
+        else {
+            var loppuosa = matoTaulukko.pop(); //otetaan loppuosa pois ja siiretään se eteen
+            loppuosa.x = xpaikka; loppuosa.y = ypaikka;
+        }
+
+        matoTaulukko.unshift(loppuosa); //jos mato syö ruuan: sijoitetaan loppuosan takaisin ja madon pituus kasvaa
+
+        for(var i = 0; i < matoTaulukko.length; i++) {
+            var matoRuutu = matoTaulukko[i];
+            maalaaMato(matoRuutu.x, matoRuutu.y); //väritetään mato
+        }
+
+        maalaaRuoka(ruoka.x, ruoka.y); //väritetään ruoka
+
+        //Päivitetään pisteet
+        var pisteetTeksti = "Pisteet: " + pisteet;
+        konteksti.fillStyle = "navy";
+        konteksti.fillText(pisteetTeksti, 5, korkeus-5);
+
+        function maalaaMato(x, y) {
+        konteksti.fillStyle = "lime";
+        konteksti.fillRect(x*ruutu, y*ruutu, ruutu, ruutu);
+        konteksti.strokeStyle = "white";
+        konteksti.strokeRect(x*ruutu, y*ruutu, ruutu, ruutu);
+        }
+
+        function maalaaRuoka(x, y) {
+        konteksti.fillStyle = "red";
+        konteksti.fillRect(x*ruutu, y*ruutu, ruutu, ruutu);
+        konteksti.strokeStyle = "white";
+        konteksti.strokeRect(x*ruutu, y*ruutu, ruutu, ruutu);
+        }
+
+        function tarkistaOsuiko(x, y, taulukko) {
+            for(var i = 0; i < taulukko.length; i++) {
+                if(taulukko[i].x == x &&taulukko[i].y == y)
+                return true;}
+                return false;
+            }
+        }
+
+        $(document).keydown(function(e ){
+            var nappain = e.which;
+            if(nappain == "37" && suunta != "right") suunta = "left";
+            else if(nappain == "38" && suunta != "down") suunta = "up";
+            else if(nappain == "39" && suunta != "left") suunta = "right";
+            else if(nappain == "40" && suunta != "up") suunta = "down";
+        })
+        
+    });
+    
+    
+</script>
+
+    </head>
+    <body>
+         
+        <canvas id="canvas" width="400" height="400"></canvas>
+        
+
+    </body>
+</html>

@@ -1,0 +1,373 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js" type="text/javascript"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/tyyli.css">
+
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <link href="css/jquery-ui.structre.min.css" rel="stylesheet">
+    <link href="css/jquery-ui.theme.min.css" rel="stylesheet">
+    <link href="css/lightbox.css" rel="stylesheet">
+
+    <title>Oppimistehtävä</title>
+</head>
+
+<body>
+
+    <div class="container-fluid" id="alku">
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-oppimistehtava" href="#alku">Oppimistehtävä</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#info">Info</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">"Tuotteet"<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#accordion2">Blini kot ykkönen</a></li>
+                                <li><a href="#tabs">Blini kot kakkonen</a></li>
+                                <li><a href="#grid2">Blini kot kolmonen</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#yhteystiedot">Yhteystiedot</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-envelope"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <h3>Collapsible Navbar</h3>
+            <p>In this example, the navigation bar is hidden on small screens and replaced by a button in the top right corner (try to re-size this window).
+                <p>Only when the button is clicked, the navigation bar will be displayed.</p>
+        </div>
+
+        &nbsp;
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="kuvia/kot9.jpg" alt="kot9">
+                </div>
+
+                <div class="item">
+                    <img src="kuvia/kot6.jpg" alt="kot6">
+                </div>
+
+                <div class="item">
+                    <img src="kuvia/kot7.jpg" alt="kot7">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span><span class="sr-only">Edellinen</span></a>
+
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span><span class="sr-only">Seuraava</span></a>
+        </div>
+
+        &nbsp;
+
+        <div class="container" id="info">
+            <div class="jumbotron">
+                <h1>Jumbotron</h1>
+                <p>どうも、木吉さん</p>
+            </div>
+        </div>
+
+        &nbsp;
+
+        <div class="container" id="grid">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="kuvia/kot3.jpg" alt="kot3">
+                </div>
+                <div class="col-sm-4">
+                    <h4>Mitähän tekstiä tähän tulee</h4>
+                    <p>kun en keksi</p>
+                </div>
+                <div class="col-sm-4">
+                    <img src="kuvia/kot2.jpg" alt="kot2">
+                </div>
+            </div>
+        </div>
+
+        &nbsp;
+
+        <div class="panel-group" id="accordion1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1">Erittäin tärkeä</a></h4>
+                </div>
+                <div id="collapseOne1" class="panel-collapse collapse">
+                    <div class="panel-body">kot blini</div>
+                    <img src="kuvia/kot8.jpg" alt="kot8">
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1">Vielä tärkeämpi</a></h4>
+                </div>
+                <div id="collapseTwo1" class="panel-collapse collapse">
+                    <div class="panel-body">blini kot</div>
+                    <img src="kuvia/kot10.jpg" alt="kot10">
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1">Video</a></h4>
+                </div>
+                <div id="collapseThree1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <h4>Aku Ankan synnytyskivut</h4></div>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class "embed-responsive-item" src="https://www.youtube.com/embed/6bdHBoG2bLY"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        &nbsp;
+
+        <div id="accordion2">
+            <h3><a href="#">Osa 1</a></h3>
+            <div>
+                <p>Olisi pitänyt olla kirpputori</p>
+                <img src="kuvia/kot11.jpg" alt="kot11">
+            </div>
+            <h3><a href="#">Osa 2</a></h3>
+            <div>
+                <p>Mutta en tajunnut kuin vähän tämän jälkeen</p>
+                <img src="kuvia/kot12.jpg" alt="kot12">
+            </div>
+            <h3><a href="#">Osa 3</a></h3>
+            <div>
+                <p>Toivottavasti ei haittaa</p>
+                <img src="kuvia/kot6.jpg" alt="kot6">
+            </div>
+        </div>
+
+        &nbsp;
+
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Kot 1</a></li>
+                <li><a href="#tabs-2">Kot 2</a></li>
+                <li><a href="#tabs-3">Kot 3</a></li>
+                <li><a href="#tabs-4">Kot 4</a></li>
+            </ul>
+            <div id="tabs-1">
+                <p>kun</p>
+                <img src="kuvia/kot2.jpg" alt="kot2">
+            </div>
+            <div id="tabs-2">
+                <p>pitäisi</p>
+                <img src="kuvia/kot3.jpg" alt="kot3">
+            </div>
+            <div id="tabs-3">
+                <p>keksiä</p>
+                <img src="kuvia/kot4.jpg" alt="kot4">
+            </div>
+            <div id="tabs-4">
+                <p>kuvia</p>
+                <img src="kuvia/kot5.jpg" alt="kot5">
+            </div>
+        </div>
+
+        &nbsp;
+
+        <div class="container" id="grid2">
+            <div class="row">
+                <div class="col-sm-10">
+                    <a href="kuvia/kot10.jpg" data-lightbox="kot" data-title="Kot"><img src="kuvia/kot10min.jpg"></a>
+                    <a href="kuvia/kot11.jpg" data-lightbox="kot" data-title="Kot"><img src="kuvia/kot11min.jpg"></a>
+                    <a href="kuvia/kot12.jpg" data-lightbox="kot" data-title="Kot"><img src="kuvia/kot12min.jpg"></a>
+                </div>
+                <div class="col-sm-2">
+                    <p>yleinen mainosteksti gallerian kuviin</p>
+                </div>
+            </div>
+        </div>
+
+        &nbsp;
+
+        <div class="container" id="grid3">
+            <div class="row">
+                <div class="col-sm-10">
+                    <a href="kuvia/kot8.jpg" data-lightbox="kot2" data-title="Kot"><img src="kuvia/kot8min.jpg"></a>
+                    <a href="kuvia/kot9.jpg" data-lightbox="kot2" data-title="Kot"><img src="kuvia/kot9min.jpg"></a>
+                    <a href="kuvia/kot7.jpg" data-lightbox="kot2" data-title="Kot"><img src="kuvia/kot7min.jpg"></a>
+                </div>
+                <div class="col-sm-2">
+                    <p>palsta, joka kertoo kuvista</p>
+                </div>
+            </div>
+        </div>
+
+        &nbsp;
+
+        <form>
+            Nimi:
+            <br>
+            <input type="text" id="nimi" required>
+            <br> Sähköposti:
+            <br>
+            <input type="email" id="email" required>
+            <br> Puhelin:
+            <br>
+            <input type="tel" id="puhelin" pattern="\+?[0-9 () \-]+">
+            <br> Varaus alkaa:
+            <br>
+            <input type="text" id="datepicker">
+            <br> Varauksen kesto:
+            <br>
+            <input type="number" id="varauksenkesto" required>
+            <br> Pöytien lkm:
+            <br>
+            <input type="number" id="poytienlkm" required>
+            <br> Lisätietoa:
+            <br>
+            <textarea rows="4" cols="50" id="lisatietoa"></textarea>
+            <br>
+            <input type="button" onClick="tallennatiedot()" value="Lähetä">
+        </form>
+
+        &nbsp;
+
+        <div id="yhteenveto"></div>
+
+        &nbsp;
+
+        <button id="nappula">Näytä yhteydenottolomake</button>
+
+        <div id="yhteydenottolomake">
+            <form id="avattava_lomake">
+                <h2>Yhteydenottolomake</h2>
+                <label for="y_nimi">Nimi:</label>
+                <input class="left" type="text" size="40px" id="y_nimi">
+                <br>
+                <label for="sposti">Sähköposti:</label>
+                <input class="left" type="text" size="40px" id="sposti">
+                <br>
+                <label for="puhelin">Puhelin:</label>
+                <input class="left" type="tel" pattern="\+?[0-9 () \-]+" id="puhelin">
+                <br>
+                <p class="textareacontainer">
+                    <label for="viesti">Viesti:</label>
+                    <textarea rows="4" cols="50" id="viesti"></textarea>
+                </p>
+                    <input type="submit" value="Lähetä lomake">
+            </form>
+        </div>
+
+        &nbsp;
+
+        <div class="container" id="yhteystiedot">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nimi</th>
+                            <th>Email</th>
+                            <th>Nro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Marko Tallgren</td>
+                            <td>marko.tallgren@myy.haaga-helia.fi</td>
+                            <td>1600545</td>
+                        </tr>
+                        <tr>
+                            <td>Jaska Jokunen</td>
+                            <td>jaska.jokunen@myy.haaga-helia.fi</td>
+                            <td>07214545</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#accordion2").accordion({
+                collapsible: true
+            });
+        });
+
+        $(function () {
+            $("#tabs").tabs();
+        });
+
+        $(function () {
+            $("#datepicker").datepicker({
+                minDate: 0
+            });
+        });
+
+        function tallennatiedot() {
+            var nimi = document.getElementById('nimi').value;
+            var email = document.getElementById('email').value;
+            var puhelin = document.getElementById('puhelin').value;
+            var date = document.getElementById('datepicker').value;
+            var varauksenkesto = document.getElementById('varauksenkesto').value;
+            var poytienlkm = document.getElementById('poytienlkm').value;
+            var lisatietoa = document.getElementById('lisatietoa').value;
+
+            document.getElementById("yhteenveto").innerHTML = nimi + email + puhelin + date + varauksenkesto + poytienlkm + lisatietoa;
+        }
+    </script>
+
+    <script>
+        var i = 0;
+        $('#avattava_lomake').hide();
+        $('#nappula').on('click', function () {
+            $('#avattava_lomake').toggle('slow');
+            if (i++ % 2 == 0) {
+                $(this).text('Sulje yhteydenottolomake');
+            } else {
+                $(this).text('Näytä yhteydenottolomake');
+            }
+        });
+    </script>
+
+    <script src="js/lightbox.min.js">
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+        })
+    </script>
+
+</body>
+
+</html>

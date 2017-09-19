@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tuntiharjoitus 2</title>
+        <link href="vaalea.css" rel="stylesheet" type="text/css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    </head>
+    <body>
+            
+<h1>jQuery kokeilua</h1>
+<button data-file="vaalea.css">Vaalea sivu</button>
+<button data-file="tumma.css">Tumma sivu</button>
+        
+        
+<script>
+  (function(){
+       var linkki=$('link');
+       $('button').on('click', function(){
+       // HTML5 data attribuutin käyttö
+       var tyyli=$(this).data('file');
+       linkki.attr('href',tyyli); // asettaa arvon attribuutille
+       });
+  })();
+</script>
+        
+    </body>
+</html>

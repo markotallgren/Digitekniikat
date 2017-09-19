@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tuntiharjoitus 2</title>
+        <link href="vaalea.css" rel="stylesheet" type="text/css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+          $(document).ready(function(){
+              $("#piilota").click(function(){
+                $("p").hide(500);
+              });
+              $("#nayta").click(function(){
+                $("p").show(500);
+              });
+           });
+        </script>
+    </head>
+    <body>
+          
+        <h1>Jotain</h1>
+        <p>tekstiä</p>
+        
+        <button id="piilota">Piilota teksti</button>
+        <button id="nayta">Näytä teksti</button>
+
+    </body>
+</html>

@@ -1,0 +1,155 @@
+.navbar-header {
+    margin-top: 5px;
+}
+
+.navbar-inverse {
+    background-color: crimson;
+    border-color: #E7E7E7;
+}
+/* brand */
+.navbar-inverse .navbar-oppimistehtava {
+    font-family: 'Lato', sans-serif;
+    color: #F8F8F8;
+    font-size: 24px;
+}
+.navbar-inverse .navbar-oppimistehtava:hover,
+.navbar-inverse .navbar-oppimistehtava:focus {
+    color: lightyellow;
+    font-size: 24px;
+    text-decoration: none;
+}
+/* link */
+.navbar-inverse .navbar-nav > li > a {
+    color: #F8F8F8;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    color: lightyellow;
+}
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: lightyellow;
+    background-color: pink;
+}
+.navbar-inverse .navbar-nav > .open > a, 
+.navbar-inverse .navbar-nav > .open > a:hover, 
+.navbar-inverse .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: pink;
+}
+/* caret */
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+    border-top-color: #777;
+    border-bottom-color: #777;
+}
+.navbar-inverse .navbar-nav > .dropdown > a:hover .caret,
+.navbar-inverse .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: #333;
+}
+
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+    background-color: #fba0b0;
+    text-decoration: none;
+}
+
+.dropdown-toggle: active, .open .dropdown-toggle {
+    background: #FFF !important; color: #000 !important;
+}
+
+.navbar-nav > li > .dropdown-menu {
+    background-color: pink;
+}
+
+ .navbar-nav > li > .dropdown-menu a {
+     color: black;
+}
+
+.jumbotron {
+    text-align: center;
+}
+
+#accordion1 img {
+    width: 100%;
+    max-height: 500px;
+    max-width: 500px;
+}
+
+#accordion2 img {
+    width: 100%;
+    max-height: 500px;
+    max-width: 500px;
+}
+
+#grid {
+    text-align: center;
+}
+
+#grid img {
+    width: 100%;
+    max-height: 350px;
+    max-width: 350px;
+    border-radius: 50%;
+}
+
+#grid2 img {
+    border: 5px;
+    box-shadow: 10px 10px 5px #888888;
+    margin-right: 5px;
+}
+
+#grid3 img {
+    border-style: solid;
+    border-width: 5px;
+    border-color: azure;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+#grid3 img:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.carousel-inner img {
+    margin: auto;
+    max-height: 400px;
+  }
+
+#tabs img {
+    width: 100%;
+    max-width: 500px;
+}
+
+#yhteydenottolomake {
+    background-color: gainsboro;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #888888;
+    max-width: 600px;
+    text-align: center;
+}
+
+#yhteydenottolomake label {
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 140px;
+    text-align: right;
+}
+
+.left {
+    float: left;
+}
+
+.textareacontainer {
+    text-align: left;
+}
+
+textarea {
+    resize: none;
+}
+
+
+@media (max-width: 600px) {
+    .carousel-caption {
+      display: none;     
+    } 
+}
