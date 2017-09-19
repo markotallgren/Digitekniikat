@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>    
+    
+    </head>
+    <body>
+        
+    <h1 id="otsikko"></h1>
+        
+    <div class="container">
+	<div class="rows">
+	<div class="col-md-6">
+		<h2>Chat</h2>
+		
+			<form>
+			Nimi:<br>
+			<input type="text" id="nimi" required>
+			<br>
+			Viesti:<br>
+			<textarea id="viesti" required></textarea><br>
+			<button id="submitBtn" onClick="submitClick()">Lähetä</button>
+			</form>
+	</div>
+	
+	<div class="col-md-6">
+		<h2>Viestit</h2>
+		<div id="viestiketju">
+		</div>	
+	
+	</div>
+	</div>
+	
+</div>
+        
+ <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDnUu0P2ZBWbrmCtUr69r_f7xWU2TPeD9I",
+    authDomain: "oppi3-d0ced.firebaseapp.com",
+    databaseURL: "https://oppi3-d0ced.firebaseio.com",
+    projectId: "oppi3-d0ced",
+    storageBucket: "oppi3-d0ced.appspot.com",
+    messagingSenderId: "313484140518"
+  };
+
+        firebase.initializeApp(config);
+        var nimesi = document.getElementById("nimi");
+        var mainText = document.getElementById("viesti");
+        var submitBtn = document.getElementById("submitBtn");      
+        var fireHeading = document.getElementById("otsikko");
+        var firebaseHeadingRef = firebase.database().ref().child("heading");
+    
+        var firebaseRef = firebase.database();
+    
+        firebaseHeadingRef.on('value', function(datasnapshot){
+        fireHeading.innerText=datasnapshot.val();
+        });
+    
+        function submitClick() {
+            var firebaseRef = firebase.database().ref();
+            var lahettaja = nimesi.value;
+            var teksti = mainText.value;
+            firebaseRef.child("viestit").push().set({
+            nimi: lahettaja,
+            viesti: teksti
+            })
+            };
+            
+            var rootRef = firebase.database().ref().child('viestit');
+            rootRef.on('child_added', snap =>
+            { var nimi = snap.child("nimi").val();
+            var viesti = snap.child("viesti").val();
+            $("#viestiketju").append("<p>" + nimi + ": " + viesti + "</p>");
+            });
+    
+    </script>
+    </body>
+</html>
